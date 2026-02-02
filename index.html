@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junlie Huang - Academic Homepage</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+            min-height: 100vh;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 30px;
+            border: 3px solid #eee;
+        }
+        .header-info h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+        .header-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-content {
+            margin-bottom: 20px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .tag {
+            background: var(--accent-color);
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .tag-ind { background: #e67e22; } /* Industry color */
+        .paper-title {
+            font-weight: bold;
+            color: #000;
+        }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .contact-links a {
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            header { flex-direction: column; text-align: center; }
+            .avatar { margin: 0 0 20px 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="profile-pic.jpg" alt="Junlie Huang" class="avatar">
+        <div class="header-info">
+            <h1>Junlie Huang (黄君烈)</h1>
+            <p>Ph.D. Candidate in Statistics</p>
+            <p><a href="http://isbd.ruc.edu.cn/" target="_blank">Institute of Statistics and Big Data</a>, Renmin University of China</p>
+            <p>📍 Beijing, China &nbsp;|&nbsp; ✉️ <a href="mailto:hjl22@ruc.edu.cn">hjl22@ruc.edu.cn</a></p>
+            <div class="contact-links" style="margin-top: 10px;">
+                <a href="#">Google Scholar</a>
+                <a href="#">Github</a>
+                <a href="resume.pdf">CV</a>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <h2>About Me</h2>
+        <div class="section-content">
+            <p>
+                I am a Ph.D. candidate at Renmin University of China (RUC), supervised by Asst. Prof. Cheng Meng. 
+                Before that, I received my B.S. degree in Mathematics from <strong>Tsinghua University</strong> in 2022.
+            </p>
+            <p>
+                My research interests include <strong>Big Data Subsampling</strong>, <strong>Optimal Transport</strong>, and <strong>Image Anomaly Detection</strong>. 
+                I am passionate about solving real-world industrial challenges using statistical methods.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>🔥 News</h2>
+        <div class="section-content">
+            <ul>
+                <li><strong>[2025.04]</strong> <span class="tag tag-ind">Award</span> Won the <strong>Huawei "Value Spark" Award</strong> (Highest Honor) for the Optical Coupling Optimization project.</li>
+                <li><strong>[2025]</strong> <span class="tag">Paper</span> Paper accepted by <strong>JCGS (JCR Q1)</strong>.</li>
+                <li><strong>[2025]</strong> <span class="tag">Award</span> Awarded "Excellent Poster" at the 23rd CSIAM Annual Conference.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>📝 Selected Publications</h2>
+        <div class="section-content">
+            <ul>
+                <li>
+                    <div class="paper-title">Efficient Approximation of Leverage Scores in Two-Dimensional Autoregressive Models with Application to Image Anomaly Detection</div>
+                    <div><strong>Junlie Huang</strong>, Cheng Meng, et al.</div>
+                    <div><em>Journal of Computational and Graphical Statistics (JCGS)</em>, 2025.</div>
+                    <div>
+                        [<a href="#">PDF</a>] 
+                        [<a href="#">Code</a>]
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>🎖 Honors & Awards</h2>
+        <div class="section-content">
+            <ul>
+                <li><strong>2025:</strong> Huawei "Value Spark" Award (Core Member)</li>
+                <li><strong>2025:</strong> Huawei "Encouragement Spark" Award (x2)</li>
+                <li><strong>2025:</strong> Excellent Poster Award, CSIAM 9th Student Forum</li>
+                <li><strong>2024:</strong> First Class Academic Scholarship, RUC</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section>
+        <h2>💻 Internships & Projects</h2>
+        <div class="section-content">
+            <ul>
+                <li>
+                    <strong>Huawei "Problem Unveiling" Project</strong> (2025.04 - Present)<br>
+                    Led the research on "Fast Optical Coupling Optimization". Designed algorithms to maximize fiber transmission efficiency.
+                </li>
+                <li>
+                    <strong>Stat2Spark Team, Mingli Innovation Lab</strong> (2025.03 - Present)<br>
+                    Council Member. Bridging the gap between statistical theory and industrial applications.
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <footer style="text-align: center; margin-top: 50px; font-size: 0.8rem; color: #888;">
+        &copy; 2026 Junlie Huang. Powered by Github Pages.
+    </footer>
+</div>
+
+</body>
+</html>
