@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Junlie Huang - Homepage</title>
     <style>
-        /* 全局样式设置 */
+        /* --- 全局变量与基础设置 --- */
         :root {
-            --primary-color: #0056b3; /* 学术蓝 */
+            --primary-color: #0056b3;
             --text-color: #333;
+            --light-gray: #555;
             --bg-color: #fff;
-            --sidebar-bg: #f8f9fa;
+            --border-color: #eee;
         }
 
         body {
@@ -19,121 +20,160 @@
             color: var(--text-color);
             margin: 0;
             padding: 0;
+            background-color: #fff;
         }
 
-        /* 布局容器：左侧边栏 + 右侧主内容 */
+        /* 页面主容器：限制最大宽度，居中 */
         .container {
-            display: flex;
-            max-width: 1100px;
+            max-width: 1000px; /*稍微收窄一点，阅读体验更好*/
             margin: 0 auto;
-            padding: 40px 20px;
-            gap: 50px;
+            padding: 50px 20px;
         }
 
-        /* 左侧边栏 (个人信息) */
-        .sidebar {
-            flex: 0 0 280px; /* 固定宽度 */
+        /* --- 第一部分：个人简介区 (左右分栏) --- */
+        .profile-section {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 60px; /* 与下方内容的间距 */
+            align-items: flex-start;
+        }
+
+        /* 左侧：照片与联系信息 */
+        .profile-sidebar {
+            flex: 0 0 260px; /* 固定宽度 */
             text-align: left;
         }
 
         .profile-img {
             width: 100%;
-            max-width: 220px;
-            border-radius: 8px; /* 圆角矩形 */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
             object-fit: cover;
         }
 
-        .sidebar h3 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
         .contact-info {
-            font-size: 0.9rem;
-            color: #555;
+            font-size: 0.95rem;
+            color: var(--light-gray);
             line-height: 1.8;
         }
+        
+        .contact-info strong {
+            color: #000;
+        }
 
-        /* 右侧主内容 */
-        .main-content {
+        /* 右侧：自我介绍文本 */
+        .profile-bio {
             flex: 1;
         }
 
-        h1 {
-            font-size: 2.2rem;
+        .profile-bio h1 {
+            font-size: 2.4rem;
             margin-top: 0;
-            margin-bottom: 10px;
-            border-bottom: none;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .profile-bio p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* --- 第二部分：通栏内容区 (News, Pubs, etc.) --- */
+        .content-section {
+            width: 100%;
+            border-top: 1px solid var(--border-color); /*以此分割上下两部分*/
+            padding-top: 40px;
         }
 
         h2 {
-            font-size: 1.5rem;
-            border-bottom: 2px solid #eee;
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: #222;
+            margin-top: 50px; /* 增加板块间距 */
+            margin-bottom: 25px;
+            color: #111;
+        }
+        
+        /* 第一个标题 (News) 不需要顶部间距 */
+        h2:first-of-type {
+            margin-top: 0; 
         }
 
-        /* 链接样式 */
+        /* 链接通用样式 */
         a {
             color: var(--primary-color);
             text-decoration: none;
+            transition: color 0.2s;
         }
 
         a:hover {
             text-decoration: underline;
+            color: #003d82;
         }
 
-        /* 新闻列表样式 */
+        /* 新闻列表优化 */
         .news-list {
             list-style: none;
             padding: 0;
         }
 
         .news-list li {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             display: flex;
             align-items: baseline;
         }
 
         .date {
-            font-weight: bold;
+            font-weight: 600;
             min-width: 100px;
             color: #444;
             flex-shrink: 0;
         }
 
-        /* 论文列表样式 */
+        /* 论文列表优化 */
         .pub-item {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .pub-title {
-            font-weight: 600;
-            font-size: 1.05rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #000;
         }
         
         .pub-links {
-            font-size: 0.9rem;
-            margin-top: 5px;
+            font-size: 0.95rem;
+            margin-top: 6px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 0 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #555;
+            margin-left: 8px;
+            vertical-align: middle;
         }
 
         /* 移动端适配 */
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
+            .profile-section {
+                flex-direction: column; /* 手机上改为上下堆叠 */
                 gap: 30px;
             }
-            .sidebar {
+            .profile-sidebar {
+                width: 100%;
                 text-align: center;
-                border-bottom: 1px solid #eee;
-                padding-bottom: 20px;
             }
             .profile-img {
-                max-width: 180px;
+                max-width: 200px;
+                margin: 0 auto 20px auto;
+            }
+            .contact-info {
+                text-align: center;
             }
         }
     </style>
@@ -141,48 +181,54 @@
 <body>
 
 <div class="container">
-    <aside class="sidebar">
-        <img src="profile.jpg" alt="Junlie Huang" class="profile-img">
-        
-        <div class="contact-info">
-            <p>
-                <strong>Institute of Statistics and Big Data</strong><br>
-                Renmin University of China<br>
-                Beijing, China
-            </p>
-            <p>Email: <a href="mailto:hjl22@ruc.edu.cn">hjl22@ruc.edu.cn</a></p>
-            <p>
-                <a href="https://github.com/Junlie22">GitHub Profile</a>
-            </p>
+
+    <section class="profile-section">
+        <div class="profile-sidebar">
+            <img src="profile.jpg" alt="Junlie Huang" class="profile-img">
+            
+            <div class="contact-info">
+                <p>
+                    <strong>Institute of Statistics and Big Data</strong><br>
+                    Renmin University of China<br>
+                    Beijing, China
+                </p>
+                <p>Email: <a href="mailto:hjl22@ruc.edu.cn">hjl22@ruc.edu.cn</a></p>
+                <p>
+                    <a href="https://github.com/Junlie22">GitHub Profile</a>
+                </p>
+            </div>
         </div>
-    </aside>
 
-    <main class="main-content">
-        <h1>Junlie Huang (黄君烈)</h1>
+        <div class="profile-bio">
+            <h1>Junlie Huang (黄君烈)</h1>
+            
+            <p>
+                Welcome to my page! I am a fourth-year Ph.D. student at the 
+                <a href="http://isbd.ruc.edu.cn/" target="_blank">Institute of Statistics and Big Data</a>, 
+                Renmin University of China, advised by 
+                <a href="https://cheng-bdal.github.io//" target="_blank">Dr. Cheng Meng</a>.
+            </p>
+            <p>
+                Prior to this, I received my B.S. degree in Mathematics from the 
+                <a href="https://math.tsinghua.edu.cn/" target="_blank">Department of Mathematical Sciences</a>, 
+                Tsinghua University.
+            </p>
+            <p>
+                My current research focuses on <strong>big data compression</strong>, <strong>optimal transport</strong>, and <strong>image anomaly detection</strong>.
+            </p>
+            <p>
+                I am currently serving as the Director for the 
+                <a href="https://mp.weixin.qq.com/s/ci3yEQE8B6Om9nn7HDRXJA?scene=1&click_id=6" target="_blank">Stat2Spark Team</a> 
+                within the <a href="https://mp.weixin.qq.com/s/LPiSqIieWTnM12lUfhL5Ng" target="_blank">Mingli Innovation Lab</a>, 
+                Renmin University of China.
+            </p>
+            <p>If you are interested in my research, feel free to drop me an email!</p>
+        </div>
+    </section>
+
+
+    <section class="content-section">
         
-        <p>
-            Welcome to my page! I am a fourth-year Ph.D. student at the 
-            <a href="http://isbd.ruc.edu.cn/" target="_blank">Institute of Statistics and Big Data</a>, 
-            Renmin University of China, advised by 
-            <a href="https://cheng-bdal.github.io//" target="_blank">Dr. Cheng Meng</a>.
-        </p>
-        <p>
-            Prior to this, I received my B.S. degree in Mathematics from the 
-            <a href="https://math.tsinghua.edu.cn/" target="_blank">Department of Mathematical Sciences</a>, 
-            Tsinghua University.
-        </p>
-        <p>
-            My current research focuses on <strong>big data compression</strong>, <strong>optimal transport</strong>, and <strong>image anomaly detection</strong>.
-        </p>
-        <p>
-            I am currently serving as the Director for the 
-            <a href="https://mp.weixin.qq.com/s/ci3yEQE8B6Om9nn7HDRXJA?scene=1&click_id=6" target="_blank">Stat2Spark Team</a> 
-            within the <a href="https://mp.weixin.qq.com/s/LPiSqIieWTnM12lUfhL5Ng" target="_blank">Mingli Innovation Lab</a>, 
-            Renmin University of China.
-        </p>
-        <p>If you are interested in my research, feel free to drop me an email!</p>
-
-
         <h2>🔥 News</h2>
         <ul class="news-list">
             <li>
@@ -206,7 +252,8 @@
             <li>
                 <span class="date">May 2025</span>
                 <div>
-                    Our paper <strong>"Efficient Approximation of Leverage Scores in Two-Dimensional Autoregressive Models with Application to Image Anomaly Detection"</strong> was accepted by <strong>JCGS</strong>. 🔥
+                    Our paper <strong>"Efficient Approximation of Leverage Scores in Two-Dimensional Autoregressive Models with Application to Image Anomaly Detection"</strong> was accepted by <strong>JCGS</strong>.
+                    <span class="tag">JCR Q1</span>
                     [<a href="https://www.tandfonline.com/doi/full/10.1080/10618600.2025.2505732l" target="_blank">Link</a>]
                 </div>
             </li>
@@ -216,7 +263,7 @@
                 <div>
                     I received the Travel Award and was selected for the Doctoral Forum at the 2025 Annual Conference of the Youth Statisticians Association. 
                     [<a href="https://mp.weixin.qq.com/s/ko2HoiA6hpjWPdyo8Q8E-g" target="_blank">News Link</a>]. 
-                    The award was reported by the academic platform 
+                    Reported by 
                     <a href="https://mp.weixin.qq.com/s/utOxnb63ZurO7jPo6NpkAg" target="_blank">"Gouxiong Hui"</a>.
                 </div>
             </li>
@@ -250,8 +297,11 @@
             <div><em>Outstanding Project Completion.</em></div>
         </div>
 
-    </main>
+    </section>
+
 </div>
 
+</body>
+</html>
 </body>
 </html>
