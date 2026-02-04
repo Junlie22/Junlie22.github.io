@@ -23,9 +23,9 @@
             background-color: #fff;
         }
 
-        /* 页面主容器：限制最大宽度，居中 */
+        /* 页面主容器 */
         .container {
-            max-width: 1000px; /*稍微收窄一点，阅读体验更好*/
+            max-width: 1000px;
             margin: 0 auto;
             padding: 50px 20px;
         }
@@ -33,15 +33,32 @@
         /* --- 第一部分：个人简介区 (左右分栏) --- */
         .profile-section {
             display: flex;
-            gap: 50px;
-            margin-bottom: 60px; /* 与下方内容的间距 */
+            gap: 60px; /* 增加一点间距，防止太挤 */
+            margin-bottom: 60px;
             align-items: flex-start;
         }
 
-        /* 左侧：照片与联系信息 */
+        /* 左侧：自我介绍文本 (原右侧内容移到左侧) */
+        .profile-bio {
+            flex: 1; /* 占据剩余空间 */
+        }
+
+        .profile-bio h1 {
+            font-size: 2.4rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .profile-bio p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        /* 右侧：照片与联系信息 (原左侧内容移到右侧) */
         .profile-sidebar {
             flex: 0 0 260px; /* 固定宽度 */
-            text-align: left;
+            text-align: left; /* 内容保持左对齐，但在布局上位于右侧 */
         }
 
         .profile-img {
@@ -62,27 +79,10 @@
             color: #000;
         }
 
-        /* 右侧：自我介绍文本 */
-        .profile-bio {
-            flex: 1;
-        }
-
-        .profile-bio h1 {
-            font-size: 2.4rem;
-            margin-top: 0;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .profile-bio p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-
         /* --- 第二部分：通栏内容区 (News, Pubs, etc.) --- */
         .content-section {
             width: 100%;
-            border-top: 1px solid var(--border-color); /*以此分割上下两部分*/
+            border-top: 1px solid var(--border-color);
             padding-top: 40px;
         }
 
@@ -90,12 +90,11 @@
             font-size: 1.6rem;
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 10px;
-            margin-top: 50px; /* 增加板块间距 */
+            margin-top: 50px;
             margin-bottom: 25px;
             color: #111;
         }
         
-        /* 第一个标题 (News) 不需要顶部间距 */
         h2:first-of-type {
             margin-top: 0; 
         }
@@ -112,7 +111,7 @@
             color: #003d82;
         }
 
-        /* 新闻列表优化 */
+        /* 列表优化 */
         .news-list {
             list-style: none;
             padding: 0;
@@ -131,7 +130,6 @@
             flex-shrink: 0;
         }
 
-        /* 论文列表优化 */
         .pub-item {
             margin-bottom: 25px;
         }
@@ -161,7 +159,7 @@
         /* 移动端适配 */
         @media (max-width: 768px) {
             .profile-section {
-                flex-direction: column; /* 手机上改为上下堆叠 */
+                flex-direction: column-reverse; /* 手机上反转顺序：照片(sidebar)在上面，文字(bio)在下面 */
                 gap: 30px;
             }
             .profile-sidebar {
@@ -183,22 +181,7 @@
 <div class="container">
 
     <section class="profile-section">
-        <div class="profile-sidebar">
-            <img src="profile.jpg" alt="Junlie Huang" class="profile-img">
-            
-            <div class="contact-info">
-                <p>
-                    <strong>Institute of Statistics and Big Data</strong><br>
-                    Renmin University of China<br>
-                    Beijing, China
-                </p>
-                <p>Email: <a href="mailto:hjl22@ruc.edu.cn">hjl22@ruc.edu.cn</a></p>
-                <p>
-                    <a href="https://github.com/Junlie22">GitHub Profile</a>
-                </p>
-            </div>
-        </div>
-
+        
         <div class="profile-bio">
             <h1>Junlie Huang (黄君烈)</h1>
             
@@ -224,6 +207,23 @@
             </p>
             <p>If you are interested in my research, feel free to drop me an email!</p>
         </div>
+
+        <div class="profile-sidebar">
+            <img src="profile.jpg" alt="Junlie Huang" class="profile-img">
+            
+            <div class="contact-info">
+                <p>
+                    <strong>Institute of Statistics and Big Data</strong><br>
+                    Renmin University of China<br>
+                    Beijing, China
+                </p>
+                <p>Email: <a href="mailto:hjl22@ruc.edu.cn">hjl22@ruc.edu.cn</a></p>
+                <p>
+                    <a href="https://github.com/Junlie22">GitHub Profile</a>
+                </p>
+            </div>
+        </div>
+
     </section>
 
 
@@ -294,14 +294,12 @@
         <div class="pub-item">
             <div class="pub-title">Multi-Dimensional Rapid Optimization Technology</div>
             <div>In collaboration with Huawei.</div>
-            <div><em>Outstanding Project Completion.</em></div>
+            <div><strong>Outstanding Project Completion.</strong></div>
         </div>
 
     </section>
 
 </div>
 
-</body>
-</html>
 </body>
 </html>
