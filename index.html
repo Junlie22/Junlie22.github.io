@@ -101,7 +101,7 @@
             color: #003d82;
         }
 
-        /* 列表优化 */
+        /* 新闻列表 */
         .news-list {
             list-style: none;
             padding: 0;
@@ -120,26 +120,27 @@
             flex-shrink: 0;
         }
 
-        /* --- Publication 条目新样式 --- */
+        /* --- Publication & Project 通用条目样式 --- */
         .pub-item {
-            display: flex; /* 启用弹性布局 */
-            gap: 25px;    /* 图片和文字之间的间距 */
+            display: flex;
+            gap: 25px;
             margin-bottom: 35px;
             align-items: flex-start;
         }
 
+        /* 只有在包含图片时才生效的样式 */
         .pub-img-preview {
-            flex: 0 0 200px; /* 图片容器固定宽度 */
+            flex: 0 0 200px;
             width: 200px;
-            height: 120px;   /* 可以根据需要调整比例 */
-            object-fit: cover; /* 确保图片不失真地填充 */
+            height: 125px;
+            object-fit: cover;
             border-radius: 6px;
             border: 1px solid #eee;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .pub-info {
-            flex: 1; /* 占据剩余空间 */
+            flex: 1;
         }
         
         .pub-title {
@@ -147,7 +148,6 @@
             font-size: 1.1rem;
             color: #000;
             margin-bottom: 4px;
-            display: block;
         }
         
         .pub-links {
@@ -180,14 +180,14 @@
                 max-width: 200px;
                 margin: 0 auto 20px auto;
             }
-            /* Publication 移动端自动改为上下排列 */
+            /* Publication 移动端改为上下排列 */
             .pub-item {
                 flex-direction: column;
                 gap: 15px;
             }
             .pub-img-preview {
                 width: 100%;
-                max-width: 300px;
+                max-width: 320px;
                 height: auto;
             }
         }
@@ -257,15 +257,13 @@
                     I was awarded an 
                     <a href="https://www.csiam.org.cn/1003/202510/2557.html" target="_blank">Outstanding Poster Award</a> 
                     at the 9th Student Forum of the China Society for Industrial and Applied Mathematics (CSIAM).
-                    [<a href="award_csiam.jpg" target="_blank">View Certificate</a>]
                 </div>
             </li>
             <li>
                 <span class="date">May 2025</span>
                 <div>
-                    Our paper <strong>"Efficient Approximation of Leverage Scores in Two-Dimensional Autoregressive Models with Application to Image Anomaly Detection"</strong> was accepted by <strong>JCGS</strong>.
+                    Our paper <strong>"Efficient Approximation of Leverage Scores..."</strong> was accepted by <strong>JCGS</strong>.
                     <span class="tag">JCR Q1</span>
-                    [<a href="https://www.tandfonline.com/doi/full/10.1080/10618600.2025.2505732l" target="_blank">Link</a>]
                 </div>
             </li>
         </ul>
@@ -273,14 +271,13 @@
 
         <h2>📝 Publications</h2>
         <div class="pub-item">
-            <img src="pub_2dar.jpg" alt="Paper Preview" class="pub-img-preview">
-            
+            <img src="2D AR model.png" alt="Paper Preview" class="pub-img-preview">
             <div class="pub-info">
                 <div class="pub-title">Efficient Approximation of Leverage Scores in Two-Dimensional Autoregressive Models with Application to Image Anomaly Detection</div>
                 <div><strong>Junlie Huang</strong>, Xinlai Kang, Qiannan Huang, Mengyu Li, Cheng Meng, Jingyi Zhang.</div>
                 <div><em>Journal of Computational and Graphical Statistics (JCGS)</em>, 2025.</div>
                 <div class="pub-links">
-                    [<a href="https://www.tandfonline.com/doi/full/10.1080/10618600.2025.2505732l" target="_blank">PDF</a>] 
+                    [<a href="#" target="_blank">PDF</a>] 
                     [<a href="https://github.com/Junlie22/2D-AR-Leverage" target="_blank">Code</a>]
                 </div>
             </div>
@@ -289,8 +286,6 @@
 
         <h2>💻 Projects</h2>
         <div class="pub-item">
-            <img src="project_huawei.jpg" alt="Project Preview" class="pub-img-preview">
-            
             <div class="pub-info">
                 <div class="pub-title">Multi-Dimensional Rapid Optimization Technology</div>
                 <div>In collaboration with Huawei.</div>
