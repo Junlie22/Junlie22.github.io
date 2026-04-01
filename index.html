@@ -1,611 +1,342 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Junlie Huang - Homepage</title>
-
     <style>
-
         /* --- 全局变量与基础设置 --- */
-
         :root {
-
             --primary-color: #0056b3;
-
             --text-color: #333;
-
             --light-gray: #555;
-
             --bg-color: #fff;
-
             --border-color: #eee;
-
         }
-
-
-
-        
 
         body {
-
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
             line-height: 1.6;
-
             color: var(--text-color);
-
             margin: 0;
-
             padding: 0;
-
             background-color: #fff;
-
         }
-
-
 
         /* 页面主容器 */
-
         .container {
-
             max-width: 1000px;
-
             margin: 0 auto;
-
             padding: 50px 20px;
-
         }
-
-
 
         /* --- 第一部分：个人简介区 (左右分栏) --- */
-
         .profile-section {
-
             display: flex;
-
-            gap: 60px; /* 增加一点间距，防止太挤 */
-
+            gap: 60px;
             margin-bottom: 60px;
-
             align-items: flex-start;
-
         }
 
-
-
-        /* 左侧：自我介绍文本 (原右侧内容移到左侧) */
-
+        /* 左侧：自我介绍文本 */
         .profile-bio {
-
-            flex: 1; /* 占据剩余空间 */
-
+            flex: 1; 
         }
-
-
 
         .profile-bio h1 {
-
             font-size: 2.4rem;
-
             margin-top: 0;
-
             margin-bottom: 20px;
-
             line-height: 1.2;
-
         }
-
-
 
         .profile-bio p {
-
             margin-bottom: 15px;
-
             font-size: 1.05rem;
-
         }
 
-
-
-        /* 右侧：照片与联系信息 (原左侧内容移到右侧) */
-
+        /* 右侧：照片与联系信息 */
         .profile-sidebar {
-
-            flex: 0 0 260px; /* 固定宽度 */
-
-            text-align: left; /* 内容保持左对齐，但在布局上位于右侧 */
-
+            flex: 0 0 260px; 
+            text-align: left; 
         }
-
-
 
         .profile-img {
-
             width: 100%;
-
             border-radius: 8px;
-
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
             margin-bottom: 25px;
-
             object-fit: cover;
-
         }
-
-
 
         .contact-info {
-
             font-size: 0.95rem;
-
             color: var(--light-gray);
-
             line-height: 1.8;
-
         }
-
         
-
         .contact-info strong {
-
             color: #000;
-
         }
-
-
 
         /* --- 第二部分：通栏内容区 (News, Pubs, etc.) --- */
-
         .content-section {
-
             width: 100%;
-
             border-top: 1px solid var(--border-color);
-
             padding-top: 40px;
-
         }
-
-
 
         h2 {
-
             font-size: 1.6rem;
-
             border-bottom: 2px solid var(--border-color);
-
             padding-bottom: 10px;
-
             margin-top: 50px;
-
             margin-bottom: 25px;
-
             color: #111;
-
         }
-
         
-
         h2:first-of-type {
-
             margin-top: 0; 
-
         }
-
-
 
         /* 链接通用样式 */
-
         a {
-
             color: var(--primary-color);
-
             text-decoration: none;
-
             transition: color 0.2s;
-
         }
-
-
 
         a:hover {
-
             text-decoration: underline;
-
             color: #003d82;
-
         }
-
-
 
         /* 列表优化 */
-
         .news-list {
-
             list-style: none;
-
             padding: 0;
-
         }
-
-
 
         .news-list li {
-
             margin-bottom: 18px;
-
             display: flex;
-
             align-items: baseline;
-
         }
-
-
 
         .date {
-
             font-weight: 600;
-
             min-width: 100px;
-
             color: #444;
-
             flex-shrink: 0;
-
         }
 
-
-
+        /* --- Publication & Project 条目样式 (Flex 布局) --- */
         .pub-item {
-
-            margin-bottom: 25px;
-
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+            align-items: flex-start;
         }
 
-        
+        /* 图片自适应样式 */
+        .pub-img-preview {
+            flex-shrink: 0;      /* 防止图片被文字挤压 */
+            width: 100%;
+            max-width: 220px;    /* 限制图片的最大宽度，可根据喜好调整 */
+            height: auto;        /* 高度设为 auto，完美保留图片原始比例 */
+            border-radius: 6px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: block;
+        }
 
+        .pub-info {
+            flex: 1; /* 文字部分占据剩余空间 */
+        }
+        
         .pub-title {
-
             font-weight: 700;
-
             font-size: 1.1rem;
-
             color: #000;
-
+            margin-bottom: 4px;
         }
-
         
-
         .pub-links {
-
             font-size: 0.95rem;
-
             margin-top: 6px;
-
         }
-
         
-
         .tag {
-
             display: inline-block;
-
             background: #f0f0f0;
-
             padding: 0 6px;
-
             border-radius: 4px;
-
             font-size: 0.8rem;
-
             color: #555;
-
             margin-left: 8px;
-
             vertical-align: middle;
-
         }
-
-
 
         /* 移动端适配 */
-
         @media (max-width: 768px) {
-
             .profile-section {
-
-                flex-direction: column-reverse; /* 手机上反转顺序：照片(sidebar)在上面，文字(bio)在下面 */
-
+                flex-direction: column-reverse; 
                 gap: 30px;
-
             }
-
             .profile-sidebar {
-
                 width: 100%;
-
                 text-align: center;
-
             }
-
             .profile-img {
-
                 max-width: 200px;
-
                 margin: 0 auto 20px auto;
-
             }
-
             .contact-info {
-
                 text-align: center;
-
             }
-
+            /* 手机端 Publication 布局改为上下排列 */
+            .pub-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .pub-img-preview {
+                max-width: 100%; /* 手机端允许图片更宽，或者维持固定最大宽度 */
+            }
         }
-
     </style>
-
 </head>
-
 <body>
-
-
 
 <div class="container">
 
-
-
     <section class="profile-section">
-
         
-
         <div class="profile-bio">
-
             <h1>Junlie Huang (黄君烈)</h1>
-
             
-
             <p>
-
                 Welcome to my page! I am a fourth-year Ph.D. student at the 
-
                 <a href="http://isbd.ruc.edu.cn/" target="_blank">Institute of Statistics and Big Data</a>, 
-
                 Renmin University of China, advised by 
-
                 <a href="https://cheng-bdal.github.io//" target="_blank">Dr. Cheng Meng</a>.
-
             </p>
-
             <p>
-
                 Prior to this, I received my B.S. degree in Mathematics from the 
-
                 <a href="https://math.tsinghua.edu.cn/" target="_blank">Department of Mathematical Sciences</a>, 
-
                 Tsinghua University.
-
             </p>
-
             <p>
-
                 My current research focuses on <strong>big data compression</strong>, <strong>optimal transport</strong>, and <strong>image anomaly detection</strong>.
-
             </p>
-
             <p>
-
                 I am currently serving as the Director for the 
-
                 <a href="https://mp.weixin.qq.com/s/ci3yEQE8B6Om9nn7HDRXJA?scene=1&click_id=6" target="_blank">Stat2Spark Team</a> 
-
                 within the <a href="https://mp.weixin.qq.com/s/LPiSqIieWTnM12lUfhL5Ng" target="_blank">Mingli Innovation Lab</a>, 
-
                 Renmin University of China.
-
             </p>
-
             <p>If you are interested in my research, feel free to drop me an email!</p>
-
         </div>
-
-
 
         <div class="profile-sidebar">
-
             <img src="profile.jpg" alt="Junlie Huang" class="profile-img">
-
             
-
             <div class="contact-info">
-
                 <p>
-
                     <strong>Institute of Statistics and Big Data</strong><br>
-
                     Renmin University of China<br>
-
                     Beijing, China
-
                 </p>
-
                 <p>Email: <a href="mailto:hjl22@ruc.edu.cn">hjl22@ruc.edu.cn</a></p>
-
                 <p>
-
                     <a href="https://github.com/Junlie22">GitHub Profile</a>
-
                 </p>
-
             </div>
-
         </div>
 
-
-
     </section>
-
-
-
 
 
     <section class="content-section">
-
         
-
         <h2>🔥 News</h2>
-
         <ul class="news-list">
-
             <li>
-
                 <span class="date">Oct 2025</span>
-
                 <div>
-
                     The Stat2Spark Team was awarded the Mingli College Outstanding Research Team Award. 
-
                     [<a href="award_team.jpg" target="_blank">View Photo</a>]
-
                 </div>
-
             </li>
-
             
-
             <li>
-
                 <span class="date">Oct 2025</span>
-
                 <div>
-
                     I was awarded an 
-
                     <a href="https://www.csiam.org.cn/1003/202510/2557.html" target="_blank">Outstanding Poster Award</a> 
-
                     at the 9th Student Forum of the China Society for Industrial and Applied Mathematics (CSIAM).
-
                     [<a href="award_csiam.jpg" target="_blank">View Certificate</a>]
-
                 </div>
-
             </li>
 
-
-
             <li>
-
                 <span class="date">May 2025</span>
-
                 <div>
-
                     Our paper <strong>"Efficient Approximation of Leverage Scores in Two-Dimensional Autoregressive Models with Application to Image Anomaly Detection"</strong> was accepted by <strong>JCGS</strong>.
-
                     <span class="tag">JCR Q1</span>
-
                     [<a href="https://www.tandfonline.com/doi/full/10.1080/10618600.2025.2505732l" target="_blank">Link</a>]
-
                 </div>
-
             </li>
 
-
-
             <li>
-
                 <span class="date">Apr 2025</span>
-
                 <div>
-
                     I received the Travel Award and was selected for the Doctoral Forum at the 2025 Annual Conference of the Youth Statisticians Association. 
-
                     [<a href="https://mp.weixin.qq.com/s/ko2HoiA6hpjWPdyo8Q8E-g" target="_blank">News Link</a>]. 
-
                     Reported by 
-
                     <a href="https://mp.weixin.qq.com/s/utOxnb63ZurO7jPo6NpkAg" target="_blank">"Gouxiong Hui"</a>.
-
                 </div>
-
             </li>
-
-
 
             <li>
-
                 <span class="date">Jan 2025</span>
-
                 <div>
-
                     Our team was awarded the <strong>Huawei 'Spark' Award</strong> for solving the 'Fast Optical Coupling Optimization' challenge. 
-
                     [<a href="https://mp.weixin.qq.com/s/VSntCro0Q9GLPgpW8r8JUw" target="_blank">Link</a>]
-
                 </div>
-
             </li>
-
         </ul>
 
 
-
-
-
         <h2>📝 Publications</h2>
-
+        
         <div class="pub-item">
-
-            <div class="pub-title">Efficient Approximation of Leverage Scores in Two-Dimensional Autoregressive Models with Application to Image Anomaly Detection</div>
-
-            <div><strong>Junlie Huang</strong>, Xinlai Kang, Qiannan Huang, Mengyu Li, Cheng Meng, Jingyi Zhang.</div>
-
-            <div><em>Journal of Computational and Graphical Statistics (JCGS)</em>, 2025.</div>
-
-            <div class="pub-links">
-
-                [<a href="https://www.tandfonline.com/doi/full/10.1080/10618600.2025.2505732l" target="_blank">PDF</a>] 
-
-                [<a href="https://github.com/Junlie22/2D-AR-Leverage" target="_blank">Code</a>]
-
+            <img src="2D AR model.png" alt="Paper Representative Image" class="pub-img-preview">
+            
+            <div class="pub-info">
+                <div class="pub-title">Efficient Approximation of Leverage Scores in Two-Dimensional Autoregressive Models with Application to Image Anomaly Detection</div>
+                <div><strong>Junlie Huang</strong>, Xinlai Kang, Qiannan Huang, Mengyu Li, Cheng Meng, Jingyi Zhang.</div>
+                <div><em>Journal of Computational and Graphical Statistics (JCGS)</em>, 2025.</div>
+                <div class="pub-links">
+                    [<a href="https://www.tandfonline.com/doi/full/10.1080/10618600.2025.2505732l" target="_blank">PDF</a>] 
+                    [<a href="https://github.com/Junlie22/2D-AR-Leverage" target="_blank">Code</a>]
+                </div>
             </div>
-
         </div>
-
-
-
 
 
         <h2>💻 Projects</h2>
-
+        
         <div class="pub-item">
-
-            <div class="pub-title">Multi-Dimensional Rapid Optimization Technology</div>
-
-            <div>In collaboration with Huawei.</div>
-
-            <div><strong>Outstanding Project Completion.</strong></div>
-
+            <div class="pub-info">
+                <div class="pub-title">Multi-Dimensional Rapid Optimization Technology</div>
+                <div>In collaboration with Huawei.</div>
+                <div><strong>Outstanding Project Completion.</strong></div>
+            </div>
         </div>
-
-
 
     </section>
 
-
-
 </div>
 
-
-
 </body>
-
 </html>
